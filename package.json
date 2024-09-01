@@ -11,7 +11,9 @@
     "start": "npm run clean && npm run build && node build/index.js",
     "setup": "npm install && npm run build && node deploy-commands.js && npm run start",
     "start:bot": "npm run deploy:commands && npm run start",
-    "clean": "del /s /q build"
+    "clean:win": "del /s /q build",
+    "clean:linux": "rm -rf build",
+    "clean": "npm run clean:win || npm run clean:linux"
   },
   "author": "Sbleit",
   "license": "MIT",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
+    "cross-env": "^7.0.3",
     "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
