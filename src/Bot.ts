@@ -58,6 +58,7 @@ export class Bot extends Client{
 
         for (const folder of commandFolders) {
             const commandsPath = join(foldersPath, folder);
+            // .ts para el modo desarrollador
             const commandFiles = readdirSync(commandsPath).filter((file:string) => file.endsWith('.js'));
             for (const file of commandFiles) {
                 const filePath = join(commandsPath, file);
